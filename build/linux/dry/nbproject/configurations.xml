@@ -4,6 +4,12 @@
     <logicalFolder name="dry" displayName="dry" projectFiles="true">
       <itemPath>../../../src/dry/main.cpp</itemPath>
     </logicalFolder>
+    <logicalFolder name="lib" displayName="lib" projectFiles="true">
+      <logicalFolder name="gzip" displayName="gzip" projectFiles="true">
+        <itemPath>../../../src/lib/gzip/gzip_file.cpp</itemPath>
+        <itemPath>../../../src/lib/gzip/gzip_file.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
     <logicalFolder name="HeaderFiles" displayName="头文件" projectFiles="true">
     </logicalFolder>
     <logicalFolder name="SourceFiles" displayName="源文件" projectFiles="true">
@@ -24,6 +30,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>../../../src/dry</Elem>
+    <Elem>../../../src/lib</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -39,9 +46,19 @@
         </ccTool>
         <linkerTool>
           <output>${CND_DISTDIR}/../../dist/${CND_PLATFORM}/${CND_CONF}/dry</output>
+          <linkerLibItems>
+            <linkerLibStdlibItem>DataCompression</linkerLibStdlibItem>
+          </linkerLibItems>
         </linkerTool>
       </compileType>
       <item path="../../../src/dry/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/lib/gzip/gzip_file.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/lib/gzip/gzip_file.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -65,9 +82,19 @@
         </asmTool>
         <linkerTool>
           <output>${CND_DISTDIR}/../../dist/${CND_PLATFORM}/${CND_CONF}/dry</output>
+          <linkerLibItems>
+            <linkerLibStdlibItem>DataCompression</linkerLibStdlibItem>
+          </linkerLibItems>
         </linkerTool>
       </compileType>
       <item path="../../../src/dry/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/lib/gzip/gzip_file.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/lib/gzip/gzip_file.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

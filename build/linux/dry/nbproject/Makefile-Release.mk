@@ -35,7 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/e0233f51/main.o
+	${OBJECTDIR}/_ext/e0233f51/main.o \
+	${OBJECTDIR}/_ext/7bd80be/gzip_file.o
 
 
 # C Compiler Flags
@@ -52,7 +53,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-lz
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -66,6 +67,11 @@ ${OBJECTDIR}/_ext/e0233f51/main.o: ../../../src/dry/main.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/main.o ../../../src/dry/main.cpp
+
+${OBJECTDIR}/_ext/7bd80be/gzip_file.o: ../../../src/lib/gzip/gzip_file.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/7bd80be
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/7bd80be/gzip_file.o ../../../src/lib/gzip/gzip_file.cpp
 
 # Subprojects
 .build-subprojects:

@@ -6,11 +6,12 @@
             <name>dry</name>
             <c-extensions/>
             <cpp-extensions>cpp</cpp-extensions>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>../../../src/dry</sourceRootElem>
+                <sourceRootElem>../../../src/lib</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
