@@ -20,6 +20,14 @@
                    displayName="测试文件"
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
+      <logicalFolder name="f1"
+                     displayName="gzip_file_test"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>../../../test/lib/gzip/gzip_file_runner.cpp</itemPath>
+        <itemPath>../../../test/lib/gzip/gzip_file_test.cpp</itemPath>
+        <itemPath>../../../test/lib/gzip/gzip_file_test.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="重要文件"
@@ -31,6 +39,7 @@
   <sourceRootList>
     <Elem>../../../src/dry</Elem>
     <Elem>../../../src/lib</Elem>
+    <Elem>../../../test</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -60,6 +69,35 @@
       </item>
       <item path="../../../src/lib/gzip/gzip_file.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../../test/lib/gzip/gzip_file_runner.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../test/lib/gzip/gzip_file_test.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../test/lib/gzip/gzip_file_test.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -96,6 +134,35 @@
       </item>
       <item path="../../../src/lib/gzip/gzip_file.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../../../test/lib/gzip/gzip_file_runner.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../test/lib/gzip/gzip_file_test.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../test/lib/gzip/gzip_file_test.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
     </conf>
   </confs>
 </configurationDescriptor>

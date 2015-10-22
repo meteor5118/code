@@ -1,0 +1,99 @@
+//
+//  tt_crash_report_linux.cpp
+//  titanagent
+//
+//  Created by luck on 14-11-1.
+//  Copyright (c) 2014Äê Leankin System. All rights reserved.
+//
+
+#include "./tt_crash_report_linux.h"
+
+#ifndef XP_WIN
+#include <stdio.h>
+#include <execinfo.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/resource.h>
+#include "./ttcontrol.h"
+#include "tt_file/tt_file_flag.h"
+#include "client/linux/handler/exception_handler.h"
+
+static char s_core_dump_path[1024];
+
+#if !defined(DEBUG)
+static void* callstack[10*1024];
+static google_breakpad::ExceptionHandler*  s_crash_eh = nullptr;
+
+static void handler(int sig) {
+    FILE *fp = nullptr;
+    int i, frames = backtrace(callstack,
+        sizeof (callstack) / sizeof (callstack[0]));
+    char** strs = backtrace_symbols(callstack, frames);
+    for (i = 0; i < frames; ++i) {
+        if (fp == nullptr) {
+            unlink(s_core_dump_path);
+            fp = fopen(s_core_dump_path, "wb");
+        }
+
+        if (fp) {
+            tt_file_set_fd_closeonexec(fileno(fp));
+            fprintf(fp, "%s\n", strs[i]);
+        } else {
+            fprintf(stderr, "%s\n", strs[i]);
+        }
+    }
+    free(strs);
+
+    if (fp) {
+        fclose(fp);
+    }
+
+    _exit(1);
+}
+#endif
+
+void set_crash_handler() {
+    get_core_dump_file(s_core_dump_path,
+        sizeof (s_core_dump_path) / sizeof (s_core_dump_path[0]));
+#if !defined(DEBUG)
+    // signal(SIGSEGV, handler);
+    if (s_crash_eh == nullptr) {
+        s_crash_eh = google_breakpad::SetupMinidump(s_core_dump_path);
+    }
+#endif
+}
+
+void stop_crash_handler() {
+#if !defined(DEBUG)
+    if (s_crash_eh != nullptr) {
+        google_breakpad::CleanupMinidump(s_crash_eh);
+    }
+#endif
+}
+void set_crash_size(void) {
+    // core dumps may be disallowed by parent of this process; change that
+    struct rlimit core_limits;
+    // core_limits.rlim_cur = core_limits.rlim_max =
+    //    get_crash_core_file_size(); //RLIM_INFINITY;
+    core_limits.rlim_cur = core_limits.rlim_max = RLIM_INFINITY;
+    setrlimit(RLIMIT_CORE, &core_limits);
+}
+
+bool create_snapshot(int pid) {
+    get_core_dump_file(s_core_dump_path,
+        sizeof (s_core_dump_path) / sizeof (s_core_dump_path[0]));
+    google_breakpad::MappingList mapping_list;
+    google_breakpad::AppMemoryList app_memory_list;
+
+    bool ret = google_breakpad::WriteMinidump(s_core_dump_path,
+                                    -1,
+                                    static_cast<pid_t>(pid),
+                                    NULL,
+                                    0,
+                                    mapping_list,
+                                    app_memory_list);
+    return ret;
+}
+
+#endif

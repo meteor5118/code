@@ -12,6 +12,7 @@
             <sourceRootList>
                 <sourceRootElem>../../../src/dry</sourceRootElem>
                 <sourceRootElem>../../../src/lib</sourceRootElem>
+                <sourceRootElem>../../../test</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
