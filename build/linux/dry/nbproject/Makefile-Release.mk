@@ -36,6 +36,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/e0233f51/main.o \
+	${OBJECTDIR}/_ext/e0233f51/parse_curl.o \
+	${OBJECTDIR}/_ext/e0233f51/parse_rsync.o \
+	${OBJECTDIR}/_ext/e0233f51/parse_wget.o \
 	${OBJECTDIR}/_ext/7bd80be/gzip_file.o
 
 # Test Directory
@@ -79,6 +82,21 @@ ${OBJECTDIR}/_ext/e0233f51/main.o: ../../../src/dry/main.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/main.o ../../../src/dry/main.cpp
 
+${OBJECTDIR}/_ext/e0233f51/parse_curl.o: ../../../src/dry/parse_curl.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/parse_curl.o ../../../src/dry/parse_curl.cpp
+
+${OBJECTDIR}/_ext/e0233f51/parse_rsync.o: ../../../src/dry/parse_rsync.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/parse_rsync.o ../../../src/dry/parse_rsync.cpp
+
+${OBJECTDIR}/_ext/e0233f51/parse_wget.o: ../../../src/dry/parse_wget.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/parse_wget.o ../../../src/dry/parse_wget.cpp
+
 ${OBJECTDIR}/_ext/7bd80be/gzip_file.o: ../../../src/lib/gzip/gzip_file.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/7bd80be
 	${RM} "$@.d"
@@ -119,6 +137,45 @@ ${OBJECTDIR}/_ext/e0233f51/main_nomain.o: ${OBJECTDIR}/_ext/e0233f51/main.o ../.
 	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/main_nomain.o ../../../src/dry/main.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/_ext/e0233f51/main.o ${OBJECTDIR}/_ext/e0233f51/main_nomain.o;\
+	fi
+
+${OBJECTDIR}/_ext/e0233f51/parse_curl_nomain.o: ${OBJECTDIR}/_ext/e0233f51/parse_curl.o ../../../src/dry/parse_curl.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/e0233f51/parse_curl.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/parse_curl_nomain.o ../../../src/dry/parse_curl.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/_ext/e0233f51/parse_curl.o ${OBJECTDIR}/_ext/e0233f51/parse_curl_nomain.o;\
+	fi
+
+${OBJECTDIR}/_ext/e0233f51/parse_rsync_nomain.o: ${OBJECTDIR}/_ext/e0233f51/parse_rsync.o ../../../src/dry/parse_rsync.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/e0233f51/parse_rsync.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/parse_rsync_nomain.o ../../../src/dry/parse_rsync.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/_ext/e0233f51/parse_rsync.o ${OBJECTDIR}/_ext/e0233f51/parse_rsync_nomain.o;\
+	fi
+
+${OBJECTDIR}/_ext/e0233f51/parse_wget_nomain.o: ${OBJECTDIR}/_ext/e0233f51/parse_wget.o ../../../src/dry/parse_wget.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/e0233f51/parse_wget.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/parse_wget_nomain.o ../../../src/dry/parse_wget.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/_ext/e0233f51/parse_wget.o ${OBJECTDIR}/_ext/e0233f51/parse_wget_nomain.o;\
 	fi
 
 ${OBJECTDIR}/_ext/7bd80be/gzip_file_nomain.o: ${OBJECTDIR}/_ext/7bd80be/gzip_file.o ../../../src/lib/gzip/gzip_file.cpp 
