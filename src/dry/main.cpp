@@ -33,43 +33,14 @@
 #include <dirent.h>
 #include <signal.h>
 #include <queue>
+#include <pthread.h>
+
+#include "backtrace.h"
 
 using namespace std;
 
-class TreeNode {
-public:
-    int val;
-    TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = this->right = NULL;
-    }
-};
-
-TreeNode *build(vector<int>::iterator pre_begin,
-           vector<int>::iterator pre_end,
-           vector<int>::iterator in_begin,
-           vector<int>::iterator in_end) {
-    if (pre_begin >= pre_end)
-        return nullptr;
-
-    TreeNode *root = new TreeNode(*pre_begin);
-    root->left = build(pre_begin + 1, pre_begin + (std::find(in_begin, in_end, *pre_begin) - in_begin),
-                    in_begin, std::find(in_begin, in_end, *pre_begin));
-    root->right = build(pre_begin + 1 + (std::find(in_begin, in_end, *pre_begin) - in_begin), pre_end,
-                    std::find(in_begin, in_end, *pre_begin) + 1, in_end);
-
-    return root;
-}
-
-TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
-    return build(preorder.begin(), preorder.end(), inorder.begin(), inorder.end());
-}
-
-int main() {
-    vector<int> preorder{1, 2};
-    vector<int> inorder{1, 2};
-    TreeNode *root = buildTree(preorder, inorder);
+int main(int argc, char **argv){
+    backtrace_ptrace(atoi(argv[1]), nullptr, nullptr, 0);
 
     return 0;
 }

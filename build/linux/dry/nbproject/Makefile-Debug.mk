@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/e0233f51/backtrace.o \
 	${OBJECTDIR}/_ext/e0233f51/main.o \
 	${OBJECTDIR}/_ext/e0233f51/parse_curl.o \
 	${OBJECTDIR}/_ext/e0233f51/parse_rsync.o \
@@ -75,7 +76,12 @@ LDLIBSOPTIONS=-lz
 
 ${CND_DISTDIR}/../../dist/${CND_PLATFORM}/${CND_CONF}/dry: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/../../dist/${CND_PLATFORM}/${CND_CONF}
-	${LINK.cc} -o ${CND_DISTDIR}/../../dist/${CND_PLATFORM}/${CND_CONF}/dry ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/../../dist/${CND_PLATFORM}/${CND_CONF}/dry ${OBJECTFILES} ${LDLIBSOPTIONS} -lunwind-x86_64 -lunwind-ptrace
+
+${OBJECTDIR}/_ext/e0233f51/backtrace.o: ../../../src/dry/backtrace.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/backtrace.o ../../../src/dry/backtrace.cpp
 
 ${OBJECTDIR}/_ext/e0233f51/main.o: ../../../src/dry/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
@@ -125,6 +131,19 @@ ${TESTDIR}/_ext/4a113312/gzip_file_test.o: ../../../test/lib/gzip/gzip_file_test
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/_ext/4a113312/gzip_file_test.o ../../../test/lib/gzip/gzip_file_test.cpp
 
+
+${OBJECTDIR}/_ext/e0233f51/backtrace_nomain.o: ${OBJECTDIR}/_ext/e0233f51/backtrace.o ../../../src/dry/backtrace.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/e0233f51/backtrace.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -g -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e0233f51/backtrace_nomain.o ../../../src/dry/backtrace.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/_ext/e0233f51/backtrace.o ${OBJECTDIR}/_ext/e0233f51/backtrace_nomain.o;\
+	fi
 
 ${OBJECTDIR}/_ext/e0233f51/main_nomain.o: ${OBJECTDIR}/_ext/e0233f51/main.o ../../../src/dry/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/e0233f51

@@ -2,6 +2,8 @@
 <configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="dry" displayName="dry" projectFiles="true">
+      <itemPath>../../../src/dry/backtrace.cpp</itemPath>
+      <itemPath>../../../src/dry/backtrace.h</itemPath>
       <itemPath>../../../src/dry/main.cpp</itemPath>
       <itemPath>../../../src/dry/parse_curl.cpp</itemPath>
       <itemPath>../../../src/dry/parse_rsync.cpp</itemPath>
@@ -62,8 +64,13 @@
           <linkerLibItems>
             <linkerLibStdlibItem>DataCompression</linkerLibStdlibItem>
           </linkerLibItems>
+          <commandLine>-lunwind-x86_64 -lunwind-ptrace</commandLine>
         </linkerTool>
       </compileType>
+      <item path="../../../src/dry/backtrace.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/dry/backtrace.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/dry/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/dry/parse_curl.cpp" ex="false" tool="1" flavor2="0">
@@ -135,6 +142,10 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="../../../src/dry/backtrace.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../../../src/dry/backtrace.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../../../src/dry/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../../../src/dry/parse_curl.cpp" ex="false" tool="1" flavor2="0">
