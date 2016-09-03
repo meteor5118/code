@@ -15,13 +15,13 @@ CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
 CND_PACKAGE_NAME_Debug=dry.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/dry.tar
 # Release configuration
-CND_PLATFORM_Release=GNU-Linux
-CND_ARTIFACT_DIR_Release=dist/../../dist/GNU-Linux/Release
+CND_PLATFORM_Release=None-Linux
+CND_ARTIFACT_DIR_Release=dist/../../dist/None-Linux/Release
 CND_ARTIFACT_NAME_Release=dry
-CND_ARTIFACT_PATH_Release=dist/../../dist/GNU-Linux/Release/dry
-CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
+CND_ARTIFACT_PATH_Release=dist/../../dist/None-Linux/Release/dry
+CND_PACKAGE_DIR_Release=dist/Release/None-Linux/package
 CND_PACKAGE_NAME_Release=dry.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/dry.tar
+CND_PACKAGE_PATH_Release=dist/Release/None-Linux/package/dry.tar
 #
 # include compiler specific variables
 #

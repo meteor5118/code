@@ -11,19 +11,24 @@
 #include <cassert>
 #include <cstring>
 
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <map>
 #include <thread>
 #include <atomic>
 #include <string>
+#include <list>
+#include <set>
+#include <memory>
 #include <algorithm>
 #include <typeinfo>
+#include <iterator>
+#include <fstream>
+#include <queue>
 
 #include <getopt.h>
-#include <fcntl.h>
-#include <arpa/inet.h>
 
+#ifdef __linux__
 #include <unistd.h>
 #include <sys/ptrace.h>
 #include <sys/socket.h>
@@ -32,16 +37,22 @@
 #include <sys/wait.h>
 #include <dirent.h>
 #include <signal.h>
-#include <queue>
 #include <pthread.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <arpa/inet.h>
 
-#include "backtrace.h"
+#endif
 
-using namespace std;
+#include "toolbox/toolbox.h"
 
 int main(int argc, char **argv){
-    backtrace_ptrace(atoi(argv[1]), nullptr, nullptr, 0);
-
+    std::string data;
+    if (!read_file_to_str("/etc/uxxxxxx", data))
+        std::cout << data << std::endl;
+    else {
+        std::cout << "faield to read file" << std::endl;
+    }
     return 0;
 }
 

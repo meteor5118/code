@@ -2,12 +2,16 @@
 <configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="dry" displayName="dry" projectFiles="true">
-      <itemPath>../../../src/dry/backtrace.cpp</itemPath>
-      <itemPath>../../../src/dry/backtrace.h</itemPath>
+      <logicalFolder name="parse_cmd" displayName="parse_cmd" projectFiles="true">
+        <itemPath>../../../src/dry/parse_cmd/parse_curl.cpp</itemPath>
+        <itemPath>../../../src/dry/parse_cmd/parse_rsync.cpp</itemPath>
+        <itemPath>../../../src/dry/parse_cmd/parse_wget.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="toolbox" displayName="toolbox" projectFiles="true">
+        <itemPath>../../../src/dry/toolbox/read_file.cpp</itemPath>
+        <itemPath>../../../src/dry/toolbox/toolbox.h</itemPath>
+      </logicalFolder>
       <itemPath>../../../src/dry/main.cpp</itemPath>
-      <itemPath>../../../src/dry/parse_curl.cpp</itemPath>
-      <itemPath>../../../src/dry/parse_rsync.cpp</itemPath>
-      <itemPath>../../../src/dry/parse_wget.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="lib" displayName="lib" projectFiles="true">
       <logicalFolder name="gzip" displayName="gzip" projectFiles="true">
@@ -64,20 +68,32 @@
           <linkerLibItems>
             <linkerLibStdlibItem>DataCompression</linkerLibStdlibItem>
           </linkerLibItems>
-          <commandLine>-lunwind-x86_64 -lunwind-ptrace</commandLine>
+          <commandLine>-ldl</commandLine>
         </linkerTool>
       </compileType>
-      <item path="../../../src/dry/backtrace.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/dry/backtrace.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/dry/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../../../src/dry/parse_curl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/dry/parse_cmd/parse_curl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/dry/parse_rsync.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/dry/parse_cmd/parse_rsync.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/dry/parse_wget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/dry/parse_cmd/parse_wget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/dry/toolbox/read_file.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/dry/toolbox/toolbox.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/lib/gzip/gzip_file.cpp"
             ex="false"
@@ -142,17 +158,29 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../../../src/dry/backtrace.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../../../src/dry/backtrace.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../../../src/dry/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../../../src/dry/parse_curl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/dry/parse_cmd/parse_curl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/dry/parse_rsync.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/dry/parse_cmd/parse_rsync.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="../../../src/dry/parse_wget.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../../../src/dry/parse_cmd/parse_wget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/dry/toolbox/read_file.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../../../src/dry/toolbox/toolbox.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../../../src/lib/gzip/gzip_file.cpp"
             ex="false"
