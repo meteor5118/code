@@ -20,12 +20,13 @@
 #include <list>
 #include <set>
 #include <memory>
-#include <algorithm>
 #include <typeinfo>
 #include <iterator>
 #include <fstream>
 #include <queue>
-
+#include <algorithm>
+#include <numeric>
+#include <typeinfo>
 #include <getopt.h>
 
 #ifdef __linux__
@@ -47,12 +48,7 @@
 #include "toolbox/toolbox.h"
 
 int main(int argc, char **argv){
-    std::string data;
-    if (!read_file_to_str("/etc/uxxxxxx", data))
-        std::cout << data << std::endl;
-    else {
-        std::cout << "faield to read file" << std::endl;
-    }
+    std::cout << copy_file("in", "out") << std::endl;
     return 0;
 }
 

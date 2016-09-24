@@ -39,7 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/20fb0c70/parse_curl.o \
 	${OBJECTDIR}/_ext/20fb0c70/parse_rsync.o \
 	${OBJECTDIR}/_ext/20fb0c70/parse_wget.o \
-	${OBJECTDIR}/_ext/9c7e2875/read_file.o \
+	${OBJECTDIR}/_ext/9c7e2875/file_op.o \
 	${OBJECTDIR}/_ext/7bd80be/gzip_file.o
 
 # Test Directory
@@ -98,10 +98,10 @@ ${OBJECTDIR}/_ext/20fb0c70/parse_wget.o: ../../../src/dry/parse_cmd/parse_wget.c
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/20fb0c70/parse_wget.o ../../../src/dry/parse_cmd/parse_wget.cpp
 
-${OBJECTDIR}/_ext/9c7e2875/read_file.o: ../../../src/dry/toolbox/read_file.cpp 
+${OBJECTDIR}/_ext/9c7e2875/file_op.o: ../../../src/dry/toolbox/file_op.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/9c7e2875
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/9c7e2875/read_file.o ../../../src/dry/toolbox/read_file.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/9c7e2875/file_op.o ../../../src/dry/toolbox/file_op.cpp
 
 ${OBJECTDIR}/_ext/7bd80be/gzip_file.o: ../../../src/lib/gzip/gzip_file.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/7bd80be
@@ -184,17 +184,17 @@ ${OBJECTDIR}/_ext/20fb0c70/parse_wget_nomain.o: ${OBJECTDIR}/_ext/20fb0c70/parse
 	    ${CP} ${OBJECTDIR}/_ext/20fb0c70/parse_wget.o ${OBJECTDIR}/_ext/20fb0c70/parse_wget_nomain.o;\
 	fi
 
-${OBJECTDIR}/_ext/9c7e2875/read_file_nomain.o: ${OBJECTDIR}/_ext/9c7e2875/read_file.o ../../../src/dry/toolbox/read_file.cpp 
+${OBJECTDIR}/_ext/9c7e2875/file_op_nomain.o: ${OBJECTDIR}/_ext/9c7e2875/file_op.o ../../../src/dry/toolbox/file_op.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/9c7e2875
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/9c7e2875/read_file.o`; \
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/_ext/9c7e2875/file_op.o`; \
 	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/9c7e2875/read_file_nomain.o ../../../src/dry/toolbox/read_file.cpp;\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/9c7e2875/file_op_nomain.o ../../../src/dry/toolbox/file_op.cpp;\
 	else  \
-	    ${CP} ${OBJECTDIR}/_ext/9c7e2875/read_file.o ${OBJECTDIR}/_ext/9c7e2875/read_file_nomain.o;\
+	    ${CP} ${OBJECTDIR}/_ext/9c7e2875/file_op.o ${OBJECTDIR}/_ext/9c7e2875/file_op_nomain.o;\
 	fi
 
 ${OBJECTDIR}/_ext/7bd80be/gzip_file_nomain.o: ${OBJECTDIR}/_ext/7bd80be/gzip_file.o ../../../src/lib/gzip/gzip_file.cpp 

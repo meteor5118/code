@@ -8,7 +8,7 @@
         <itemPath>../../../src/dry/parse_cmd/parse_wget.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="toolbox" displayName="toolbox" projectFiles="true">
-        <itemPath>../../../src/dry/toolbox/read_file.cpp</itemPath>
+        <itemPath>../../../src/dry/toolbox/file_op.cpp</itemPath>
         <itemPath>../../../src/dry/toolbox/toolbox.h</itemPath>
       </logicalFolder>
       <itemPath>../../../src/dry/main.cpp</itemPath>
@@ -88,7 +88,7 @@
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/dry/toolbox/read_file.cpp"
+      <item path="../../../src/dry/toolbox/file_op.cpp"
             ex="false"
             tool="1"
             flavor2="0">
@@ -175,7 +175,7 @@
             tool="1"
             flavor2="0">
       </item>
-      <item path="../../../src/dry/toolbox/read_file.cpp"
+      <item path="../../../src/dry/toolbox/file_op.cpp"
             ex="false"
             tool="1"
             flavor2="0">
